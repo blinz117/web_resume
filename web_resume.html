@@ -8,35 +8,37 @@
 		color:#339900;
 	}
 	
-	.list-div
+	.container-div
 	{
 	}
 	
-	.list-show
+	.show-hide
 	{
-		height:100px;
+		overflow:hidden;
+		height:0px;
+		opacity:0;
+		-webkit-transition:all 1s;
+		transition:height all;
+	}
+		
+	.show-hide.expanded
+	{
+		height:300px;
 		opacity:1;
 	}
 
-	ul
-	{
-		height:0px;
-		opacity:0;
-		-webkit-transition:height 1s, opacity 1s;
-		transition:height 1s, opacity 1s;
-	}
 	</style>
 	
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	
 	<script>
 		$(document).ready(function(){
-			$(".list-div").click(function(){
-				var lists = $(this).children("ul");
+			$(".container-div").click(function(){
+				var lists = $(this).children(".show-hide");
 				for (var ndx = 0; ndx < lists.length; ndx++)
 				{
 					var list = lists[ndx];
-					$(list).toggleClass("list-show");
+					$(list).toggleClass("expanded");
 				}
 			});
 		});
@@ -50,20 +52,65 @@
 
 <div id="sections">
 
-<div class="text list-div" id="education">
-<h2>Education</h2>
-<ul>
-<li>Bachelors of Science in Computer Science, Mathematics minor</li>
-<li>Graduation May 2012</li>
-<li>GPA: 3.68    Major GPA: 3.89</li>
-<li>Honors: Cum Laude, Computer Science Award, Member of Pi Mu Epsilon Honor Society</li>
-</ul>
-</div>
+	<div class="text container-div" id="education">
+		<h2>Education</h2>
+		<div class="show-hide">
+			<ul>
+				<li>Bachelors of Science in Computer Science, Mathematics minor</li>
+				<li>Graduation May 2012</li>
+				<li>GPA: 3.68    Major GPA: 3.89</li>
+				<li>Honors: Cum Laude, Computer Science Award, Member of Pi Mu Epsilon Honor Society</li>
+			</ul>
+			
+			<div class="container-div" id="courses">
+				<h4>Coursework</h4>
+				<div class="show-hide">
+					<ul>
+						<li>Theory and Construction of Compilers, Design and Analysis of Algorithms, Operating Systems, Introduction to Computational Art, Database Systems, Theoretical Foundations of Computer Science, Computer Organization, Introduction to Computational Science, Artificial Intelligence, Intermediate Programming and Data Structures, Introduction to Networking Fundamentals, Introduction to Mathematical Modeling, Introduction to Computer Science, Discrete Mathematics</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<h2 class="text">Work Experience</h2>
-<h2 class="text">Leadership Experience</h2>
-<h2 class="text">Skills</h2>
-<h2 class="text">Other Stuff</h2>
+	<div class="text container-div" id="work">
+		<h2>Work Experience</h2>
+		<div class="show-hide">
+			<ul>
+				<li>Software Developer
+				HP Exstream Software
+				Member of the UI team working on customer communication management  software.
+				Lexington, Kentucky
+				June 2012-Present
+				</li>
+				<li>Web Editor
+				The Cento
+				Oversaw interaction of editors and writers with the newspaper's website and addressed technical issues. Did basic editing of website templates written in HTML and Django to customize the website.
+				Danville, Kentucky
+				Spring 2011–Spring 2012
+				</li>
+				<li>Research Intern
+				Centre College
+				Researched in mathematical modeling of baseball. Designed programs in MATLAB to perform mathematical simulations of baseball games.
+				Danville, Kentucky
+				Summer 2009
+				</li>
+			</ul>	
+		</div>
+	</div>
+	
+	<div class="text container-div" id="leadership">
+		<h2>Leadership Experience</h2>
+	</div>
+	
+	<div class="text container-div" id="skills">
+		<h2>Skills</h2>
+	</div>
+	
+	<div class="text container-div" id="other">
+		<h2>Other Stuff</h2>
+	</div>
+	
 </div>
 
 <div id="footer">
