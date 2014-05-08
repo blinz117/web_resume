@@ -1,28 +1,47 @@
 <!DOCTYPE html>
 <html>
+<head>
+	<style>
+	.text
+	{
+		font-family:arial;
+		color:#339900;
+	}
+	
+	.list-div
+	{
+	}
+	
+	.list-show
+	{
+		height:100px;
+		opacity:1;
+	}
 
-<style>
-.text
-{
-font-family:arial;
-color:#339900;
-}
-
-ul
-{
-height:0px;
-opacity:0;
--webkit-transition:height 2s, opacity 2s;
-transition:height 2s, opacity 2s;
-}
-
-div:hover>ul
-{
-height:100px;
-opacity:1;
-}
-</style>
-
+	ul
+	{
+		height:0px;
+		opacity:0;
+		-webkit-transition:height 1s, opacity 1s;
+		transition:height 1s, opacity 1s;
+	}
+	</style>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	
+	<script>
+		$(document).ready(function(){
+			$(".list-div").click(function(){
+				var lists = $(this).children("ul");
+				for (var ndx = 0; ndx < lists.length; ndx++)
+				{
+					var list = lists[ndx];
+					$(list).toggleClass("list-show");
+				}
+			});
+		});
+	</script>
+</head>
 <body>
 
 <div id="title">
@@ -31,7 +50,7 @@ opacity:1;
 
 <div id="sections">
 
-<div class="text" id="education">
+<div class="text list-div" id="education">
 <h2>Education</h2>
 <ul>
 <li>Bachelors of Science in Computer Science, Mathematics minor</li>
