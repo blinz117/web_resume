@@ -5,7 +5,7 @@
 	.text
 	{
 		font-family:arial;
-		color:#339900;
+		color:#6C6C6C;
 	}
 	
 	.show-hide
@@ -14,10 +14,15 @@
 		height:0px;
 		opacity:0;
 	}
-		
-	.show-hide.expanded
+	
+	.expand-header
 	{
-		opacity:1;
+		-webkit-transition: color 0.25s;
+		transition: color 0.25s;
+	}
+	.expand-header:hover
+	{
+		color:#BCBCBC
 	}
 
 	</style>
@@ -35,7 +40,7 @@
 					$(expander).height(currHeight).animate({
 						height: 0,
 						opacity: 0
-						}, 750);
+						}, 800);
 				}
 				else
 				{
@@ -43,7 +48,7 @@
 					$(expander).height(0).animate({
 						height: autoHeight,
 						opacity: 1
-						}, 750, function(){
+						}, 800, function(){
 						$(expander).css('height', 'auto');
 					});
 					
@@ -96,7 +101,7 @@
 				The Cento
 				Oversaw interaction of editors and writers with the newspaper's website and addressed technical issues. Did basic editing of website templates written in HTML and Django to customize the website.
 				Danville, Kentucky
-				Spring 2011–Spring 2012
+				Spring 2011-Spring 2012
 				</li>
 				<li>Research Intern
 				Centre College
@@ -110,14 +115,50 @@
 	
 	<div class="text" id="leadership">
 		<h2 class="expand-header">Leadership Experience</h2>
+		<div class="show-hide">
+			<ul>
+				<li>President
+				Centre College Computer Science Club
+				Led discussion on topics in Computer Science. Organized and presided over meetings.
+				Danville, Kentucky
+				Fall 2011–Spring 2012</li>
+				<li>Student Representative
+				Computer Science Department, Centre College
+				Represented student interests in the Computer Science department faculty meetings.
+				Danville, Kentucky
+				Fall 2011–Spring 2012</li>
+			</ul>
+		</div>
 	</div>
 	
 	<div class="text container-div" id="skills">
 		<h2 class="expand-header">Skills</h2>
+		<div class="show-hide">
+			<ul>
+				<li>C++/C</li>
+				<li>Java</li>
+				<li>MFC</li>
+				<li>Android</li>
+				<li>Python</li>
+				<li>HTML</li>
+				<li>JavaScript</li>
+				<li>SQL</li>
+				<li>PHP</li>
+				<li>MIPS</li>
+				<li>Assembly</li>
+				<li>MATLAB</li>
+				<li>Linux</li>
+			</ul>
+		</div>
 	</div>
 	
 	<div class="text" id="other">
 		<h2 class="expand-header">Other Stuff</h2>
+		<div class="show-hide">
+			<ul>
+				<li>My GitHub page</li>
+			</ul>
+		</div>
 	</div>
 	
 </div>
