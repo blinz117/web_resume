@@ -8,22 +8,15 @@
 		color:#339900;
 	}
 	
-	.container-div
-	{
-	}
-	
 	.show-hide
 	{
 		overflow:hidden;
 		height:0px;
 		opacity:0;
-		-webkit-transition:all 1s;
-		transition:height all;
 	}
 		
 	.show-hide.expanded
 	{
-		height:300px;
 		opacity:1;
 	}
 
@@ -33,13 +26,29 @@
 	
 	<script>
 		$(document).ready(function(){
-			$(".container-div").click(function(){
-				var lists = $(this).children(".show-hide");
-				for (var ndx = 0; ndx < lists.length; ndx++)
+			$(".expand-header").click(function(){
+				var expander = $(this).next(".show-hide");
+				if ($(expander).hasClass("expanded"))
 				{
-					var list = lists[ndx];
-					$(list).toggleClass("expanded");
+					// set the current height to the actual height
+					var currHeight = $(expander).height();
+					$(expander).height(currHeight).animate({
+						height: 0,
+						opacity: 0
+						}, 750);
 				}
+				else
+				{
+					var autoHeight = $(expander).css('height', 'auto').height();
+					$(expander).height(0).animate({
+						height: autoHeight,
+						opacity: 1
+						}, 750, function(){
+						$(expander).css('height', 'auto');
+					});
+					
+				}
+				$(expander).toggleClass("expanded");
 			});
 		});
 	</script>
@@ -52,8 +61,8 @@
 
 <div id="sections">
 
-	<div class="text container-div" id="education">
-		<h2>Education</h2>
+	<div class="text" id="education">
+		<h2 class="expand-header">Education</h2>
 		<div class="show-hide">
 			<ul>
 				<li>Bachelors of Science in Computer Science, Mathematics minor</li>
@@ -62,8 +71,8 @@
 				<li>Honors: Cum Laude, Computer Science Award, Member of Pi Mu Epsilon Honor Society</li>
 			</ul>
 			
-			<div class="container-div" id="courses">
-				<h4>Coursework</h4>
+			<div id="courses">
+				<h4 class="expand-header">Coursework</h4>
 				<div class="show-hide">
 					<ul>
 						<li>Theory and Construction of Compilers, Design and Analysis of Algorithms, Operating Systems, Introduction to Computational Art, Database Systems, Theoretical Foundations of Computer Science, Computer Organization, Introduction to Computational Science, Artificial Intelligence, Intermediate Programming and Data Structures, Introduction to Networking Fundamentals, Introduction to Mathematical Modeling, Introduction to Computer Science, Discrete Mathematics</li>
@@ -73,8 +82,8 @@
 		</div>
 	</div>
 
-	<div class="text container-div" id="work">
-		<h2>Work Experience</h2>
+	<div class="text" id="work">
+		<h2 class="expand-header">Work Experience</h2>
 		<div class="show-hide">
 			<ul>
 				<li>Software Developer
@@ -99,16 +108,16 @@
 		</div>
 	</div>
 	
-	<div class="text container-div" id="leadership">
-		<h2>Leadership Experience</h2>
+	<div class="text" id="leadership">
+		<h2 class="expand-header">Leadership Experience</h2>
 	</div>
 	
 	<div class="text container-div" id="skills">
-		<h2>Skills</h2>
+		<h2 class="expand-header">Skills</h2>
 	</div>
 	
-	<div class="text container-div" id="other">
-		<h2>Other Stuff</h2>
+	<div class="text" id="other">
+		<h2 class="expand-header">Other Stuff</h2>
 	</div>
 	
 </div>
