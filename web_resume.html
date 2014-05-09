@@ -2,9 +2,27 @@
 <html>
 <head>
 	<style>
+	body
+	{
+		margin-left:25px;
+		margin-right:25px;
+	}
+	
+	ul
+	{
+		list-style-type:none;
+		margin:0px;
+	}
+	
+	h2, h4
+	{
+		font-weight:normal;
+		margin:5px;
+	}
+	
 	.text
 	{
-		font-family:arial;
+		font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
 		color:#6C6C6C;
 	}
 	
@@ -20,9 +38,18 @@
 		-webkit-transition: color 0.25s;
 		transition: color 0.25s;
 	}
+	
 	.expand-header:hover
 	{
 		color:#BCBCBC
+	}
+	
+	#footer
+	{
+		background-color:white;
+		position:fixed;
+		bottom:5px;
+		right:5px;
 	}
 
 	</style>
@@ -60,9 +87,7 @@
 </head>
 <body>
 
-<div id="title">
 <h1 class="text">Bryan Lindsey</h1>
-</div>
 
 <div id="sections">
 
@@ -91,11 +116,10 @@
 		<h2 class="expand-header">Work Experience</h2>
 		<div class="show-hide">
 			<ul>
-				<li>Software Developer
-				HP Exstream Software
-				Member of the UI team working on customer communication management  software.
-				Lexington, Kentucky
-				June 2012-Present
+				<li><b>Software Developer</b><br>
+				HP Exstream Software<br>
+				June 2012-Present<br>
+				Member of the UI team working on customer communication management software.
 				</li>
 				<li>Web Editor
 				The Cento
@@ -156,7 +180,17 @@
 		<h2 class="expand-header">Other Stuff</h2>
 		<div class="show-hide">
 			<ul>
-				<li>My GitHub page</li>
+				<li><a href="https://github.com/blinz117">My GitHub page</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="text" id="contact">
+		<h2 class="expand-header">Contact info</h2>
+		<div class="show-hide">
+			<ul>
+				<li>Email: <a href="mailto:blinz117@gmail.com">blinz117@gmail.com</a></li>
+				<li>Phone: (859) 612-9495</li>
 			</ul>
 		</div>
 	</div>
@@ -164,8 +198,9 @@
 </div>
 
 <div id="footer">
-<p class="text">Copyright Bryan Lindsey 2014</p>
+	<p class="text">Updated 5/8/2014</p>
 </div>
+
 
 </body>
 </html>
