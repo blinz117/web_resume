@@ -83,9 +83,10 @@
 	
 	.show-hide
 	{
-		overflow:hidden;
-		height:0px;
 		opacity:0;
+		overflow:hidden;
+		height:auto;
+		display:none;
 	}
 	
 	.expand-header
@@ -123,19 +124,14 @@
 	<script>
 		function showHide(item, bCollapseAll)
 		{
+			var animateDuration = 800;
+			var animateOptions = {duration: animateDuration, queue: false};
 			if ($(item).hasClass("expanded"))
 			{
 				// Hide this itme:
-				
-				// Set the current height to the actual height
-				// (since the animation won't work with auto height)
-				var currHeight = $(item).height();
-				// Shirnk to 0
-				$(item).height(currHeight).animate({
-					height: 0,
-					opacity: 0
-					}, 800);
-					
+				$(item).animate({opacity: 0}, animateDuration);		
+				$(item).slideUp(animateOptions);
+
 				$(item).toggleClass("expanded");
 				
 				// This is put here mainly to collapse all subsections.
@@ -146,18 +142,8 @@
 			else
 			{
 				//Show this item:
-				
-				// Calculate new height
-				var autoHeight = $(item).css('height', 'auto').height();
-				// set the height to the calculated height, 
-				// and then iimediately set height to auto after
-				// the animation
-				$(item).height(0).animate({
-					height: autoHeight,
-					opacity: 1
-					}, 800, function(){
-					$(item).css('height', 'auto');
-				});
+				$(item).animate({opacity: 1}, animateDuration);
+				$(item).slideDown(animateOptions);
 				
 				if (bCollapseAll)
 					collapseAll();
@@ -335,7 +321,7 @@
 </div>
 
 <div id="footer">
-	<p class="text">Updated 5/10/2014</p>
+	<p class="text">Updated 5/14/2014</p>
 </div>
 
 
